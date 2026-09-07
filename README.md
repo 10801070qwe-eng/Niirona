@@ -97,6 +97,7 @@ This repository is a public overview, not a production source release. It intent
 See:
 
 - [Capabilities](CAPABILITIES.md)
+- [Adaptive Context Intelligence](ADAPTIVE_CONTEXT.md)
 - [Architecture — public view](ARCHITECTURE.md)
 - [Current status](STATUS.md)
 - [Roadmap](ROADMAP.md)
