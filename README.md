@@ -261,3 +261,22 @@ NIIRONA is being built toward a system where:
 - code changes are verified before becoming durable;
 - UI, voice, desktop, mobile, and avatar clients remain replaceable surfaces;
 - the system can grow without turning its orchestrator into a monolith.
+---
+
+## Unity Avatar Client
+
+NIIRONA includes an interactive Unity-based avatar client that provides a visual interface for interaction with the system.
+
+### Interactive interface
+
+![NIIRONA Unity Avatar Interface](Снимок%20экрана%20(726).png)
+
+### Avatar rig and skeleton tools
+
+NIIRONA includes custom Unity tooling for avatar analysis, humanoid skeleton detection, finger-bone mapping, rig construction, and avatar control.
+
+![NIIRONA Avatar Rig Tools](Снимок%20экрана%20(729).png)
+
+### Development view
+
+![NIIRONA Avatar Development](Снимок%20экрана%20(728).png)
