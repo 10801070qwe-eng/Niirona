@@ -28,7 +28,7 @@ Model runtime work is being developed so a user can move from one LLM to another
 
 Controlled hot switching is a major capability currently being integrated.
 
-### Give the LLM what it actually needs
+### Adaptive Context Intelligence — give the LLM what it actually needs
 NIIRONA does not want to dump an entire project and an entire conversation into every request.
 
 It maintains organized project knowledge and builds a smaller working context around the current problem. When more information is needed, context can be expanded deliberately.
@@ -44,6 +44,10 @@ The context system is intended to do more than retrieve files.
 NIIRONA can use the outcome of previous work as feedback: what information was selected, what turned out to be missing, what was unnecessary, and what later became important. That experience can be used to improve future context selection.
 
 In other words, the model itself does not have to be retrained for NIIRONA to become better at **how it prepares a problem for the model**.
+
+**The goal is not more context. It is the right context, at the right time, in the right amount — with the selection strategy improving from experience.**
+
+→ [Read more about NIIRONA Adaptive Context Intelligence](ADAPTIVE_CONTEXT.md)
 
 ### Conversation and work are different things
 A long chat should not automatically become the working memory of every coding task.
