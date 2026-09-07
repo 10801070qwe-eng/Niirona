@@ -110,6 +110,8 @@ See:
 
 - [Capabilities](CAPABILITIES.md)
 - [Adaptive Context Intelligence](ADAPTIVE_CONTEXT.md)
+- [Architecture Vision — Why NIIRONA is built this way](NIIRONA_ARCHITECTURE_VISION_RU_PUBLIC.md)
+- [Deterministic Orchestrator V2](ORCHESTRATOR_V2.md)
 - [Architecture — public view](ARCHITECTURE.md)
 - [Current status](STATUS.md)
 - [Roadmap](ROADMAP.md)
