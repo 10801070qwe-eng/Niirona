@@ -1,126 +1,78 @@
 # NIIRONA Public Roadmap
 
-This roadmap is intentionally high level.
+This roadmap describes user-visible capability direction. Exact private milestones, protocols and implementation details are intentionally omitted.
 
-Exact internal milestones, protocol changes, private test gates, timing thresholds, and implementation details are not public.
-
----
-
-## Phase A — Deterministic modular core
-
-- modular subsystem architecture;
-- controlled integration fabric;
-- deterministic orchestration;
-- isolated execution;
-- recovery and restart handling;
-- separate chat/task paths.
-
-**Status:** largely implemented.
-
----
-
-## Phase B — Final architecture migration
-
-- remove duplicate legacy control logic;
-- preserve a single authority path;
-- complete final integration cutover;
-- validate normal-user workflows after migration.
-
-**Status:** active / advanced.
-
----
-
-## Phase C — LLM Runtime & Routing Manager
-
-Create the dedicated model-runtime subsystem for:
-
-- model registry;
-- runtime profiles;
-- GPU mapping;
-- local/cloud lifecycle;
-- hot switching;
-- health state;
-- explicit multi-model modes;
-- future hardware-aware model selection.
-
-**Status:** architecture fixed; implementation is a major next block.
-
----
-
-## Phase D — Intent-controlled system actions
-
-Add the Intent Gate between conversational input and deterministic control.
+## 1 — Reliable persistent AI foundation
+**Status: largely implemented / advanced validation**
 
 Goals:
 
-- distinguish discussion from execution;
-- support natural phrasing;
-- avoid accidental privileged actions;
-- emit structured action intents.
+- keep conversation separate from explicit execution;
+- preserve useful task state;
+- support long sessions;
+- recover after restart;
+- isolate risky work;
+- test changes;
+- preserve known-good states;
+- roll back failed changes;
+- retain useful failure evidence.
 
----
+## 2 — Smarter context
+**Status: implemented foundation, continuing development**
 
-## Phase E — Security hardening
+Goals:
 
-Dedicated work for:
+- give each task only the context it needs;
+- expand context when evidence shows something is missing;
+- avoid repeatedly sending irrelevant project history;
+- learn from previous context-selection outcomes;
+- improve how tasks are prepared for both local and cloud LLMs;
+- reduce unnecessary cloud-token use.
 
-- input/media boundaries;
-- sandbox and network restrictions;
-- capability authorization;
-- anti-tamper controls;
-- auditability;
-- privileged-action policy.
+## 3 — Replaceable models and live runtime management
+**Status: major active/next infrastructure work**
 
----
+Goals:
 
-## Phase F — Cloud-to-local teaching
+- register multiple local and cloud models;
+- manage local model lifecycle;
+- map models to available GPU resources;
+- track active model state and health;
+- switch models in a controlled way during operation;
+- support explicit multi-model modes;
+- later recommend/select suitable models for available hardware.
 
-Add a separate subsystem that can coordinate a cloud teacher model and a local student model.
+## 4 — Controlled self-extension
+**Status: development direction**
 
-The model-runtime subsystem provides infrastructure; the teaching subsystem owns the teaching/evaluation workflow.
+Goal: allow NIIRONA to build a requested new capability without blindly changing the working system.
 
----
+Target cycle:
 
-## Phase G — Unity / desktop client completion
+**request → isolate → build → test → inspect → repair → integrate → observe → keep or roll back**
 
-The Windows/Unity avatar client is already substantially implemented as a separate application.
+Failure evidence should inform the next attempt.
 
-Current / ongoing client work includes:
+## 5 — Cloud helping local
+**Status: designed / future subsystem**
 
-- avatar loading and control;
-- automatic bone discovery/mapping;
-- rig and pose handling;
-- body movement;
-- hand and finger behavior;
-- neutral-hand calibration;
-- menu/UI refinement;
-- final connection to NIIRONA through controlled interfaces;
-- voice/chat integration.
+A stronger cloud model should be able to teach a local model narrow behaviors through controlled tasks, tests and evaluation rather than uncontrolled prompt imitation.
 
-**Status:** substantial implementation exists; refinement and core integration remain.
+## 6 — Human interfaces
+**Status: Unity client substantially implemented; broader integration ongoing**
 
----
+Goals:
 
-## Phase H — Broader client surfaces
-
-- richer local administration UI;
+- text chat;
+- speech input/output;
+- Windows client;
+- interactive Unity avatar;
 - mobile interface;
-- deeper voice interaction;
-- visual model/hardware management;
-- additional replaceable clients.
-
----
+- visual model/hardware controls;
+- replaceable future clients.
 
 ## Long-term direction
 
-NIIRONA's long-term direction is:
+NIIRONA is moving toward an AI environment that becomes less dependent on any single model over time.
 
-- stronger subsystem specialization;
-- lower dependence on any single model;
-- richer local autonomy;
-- safer self-modification;
-- better restart recovery;
-- more efficient context use;
-- controlled cloud assistance;
-- replaceable user interfaces;
-- lower recurring inference cost.
+The system should preserve its useful working knowledge, improve how it prepares context, recover from failures, control risky changes and let the user choose when local or cloud intelligence is worth using.

@@ -1,104 +1,81 @@
-# Public Disclosure Policy
+# NIIRONA Public Disclosure Policy
 
-NIIRONA's public documentation is intentionally informative but non-reproducible.
+NIIRONA's public documentation follows one simple rule:
 
-The project can disclose **what the system does**, **which responsibilities are separated**, and **which major components exist**, while withholding details required to reconstruct the production system.
+> **Explain what the system can do and why it matters. Do not publish the private recipe required to reproduce it.**
 
----
+## Safe public capability claims
 
-## Safe to publish
+Public material may explain that NIIRONA:
 
-Examples:
+- is local-first;
+- can work with local and cloud LLMs;
+- is designed so the reasoning model is replaceable;
+- separates ordinary conversation from explicit task execution;
+- prepares bounded task-specific context;
+- is being developed to improve context selection using previous outcomes;
+- can reduce unnecessary context sent to cloud models;
+- uses controlled execution and testing;
+- preserves useful evidence from failed attempts;
+- supports checkpoint/rollback workflows;
+- treats restart recovery as a first-class requirement;
+- is being developed for controlled model hot switching;
+- is being developed toward controlled self-extension;
+- has a separate Unity/avatar client;
+- is intended to support voice, desktop and future mobile interfaces.
 
-- NIIRONA is local-first.
-- It uses deterministic orchestration.
-- Chat and autonomous execution are separate.
-- Context management is separated from control.
-- LLMs are replaceable runtime resources.
-- The system uses isolated execution and rollback.
-- Restart recovery is a first-class design requirement.
-- Multiple local/cloud models are supported architecturally.
-- A dedicated model-runtime manager is planned.
-- A teaching subsystem can coordinate cloud and local models.
-- The Unity avatar exists as a separate client application.
-- The client can discover/map avatar bones and manage rig/pose behavior.
-- State, context, testing, confidence, and execution have dedicated responsibilities.
+## Status must remain clear
 
----
+Public documentation must distinguish:
 
-## Do not publish
+- capabilities already implemented or demonstrated;
+- capabilities in advanced integration;
+- development targets and long-term direction.
 
-Avoid publishing:
+A planned capability must never be presented as fully available.
 
-- exact internal message schemas;
+## Private implementation details
+
+Do not publish information that turns the overview into a reconstruction guide, including:
+
+- production source code;
+- exact message schemas;
 - internal capability contracts;
-- routing tables;
 - private module identifiers where unnecessary;
+- routing tables;
 - state-machine definitions;
 - retry counts and timing thresholds;
 - recovery ordering;
-- acknowledgement/barrier implementation details;
-- exact subsystem dependency graphs;
+- acknowledgement/barrier mechanics;
+- exact dependency graphs;
 - private prompts;
-- internal scoring/ranking formulas;
-- context-selection formulas;
+- context-selection formulas or ranking weights;
+- failure-learning formulas;
 - sandbox security boundaries;
-- security enforcement rules;
-- model-launch command templates;
-- production configuration files;
-- source directory topology;
-- private test fixtures that reveal protocols;
-- sensitive deployment information.
-
----
+- privileged-action enforcement rules;
+- production model-launch commands;
+- private configuration;
+- sensitive deployment information;
+- private test fixtures that expose protocols.
 
 ## Screenshots
 
-Screenshots are useful, but they should be reviewed before publication.
+Public screenshots should be cleaned of:
 
-Safe screenshots should avoid exposing:
-
-- API keys or tokens;
+- API keys and tokens;
 - account identifiers;
-- private repository names;
-- local usernames or home paths;
+- local usernames and private paths;
 - private IP addresses;
-- internal ports when unnecessary;
-- production logs containing sensitive data;
-- source code that reveals private implementation details.
+- unnecessary internal ports;
+- sensitive logs;
+- private source code.
 
-Good public screenshots include:
+Good public visuals include the avatar, client UI, high-level interaction states and non-sensitive demonstrations.
 
-- the avatar/client UI;
-- a clean Unity client view;
-- a high-level system dashboard mockup;
-- non-sensitive visual interaction states.
+## Positioning
 
----
+A useful short description is:
 
-## Diagrams
+**NIIRONA is a local-first AI environment that keeps context, execution, recovery and learning around the model, allowing local and cloud LLMs to act as replaceable reasoning engines rather than becoming the whole system.**
 
-Public diagrams should show:
-
-- layers;
-- direction of control;
-- separation of responsibilities;
-- local/cloud model replaceability;
-- conversation vs execution separation;
-- client/core separation.
-
-Public diagrams should not show:
-
-- protocol fields;
-- exact failure sequencing;
-- private command maps;
-- privileged interfaces;
-- exact internal state transitions.
-
----
-
-## Recommended public positioning
-
-> **NIIRONA is a modular, local-first AI system with deterministic control, isolated execution, dedicated context management, restart recovery, replaceable local/cloud reasoning models, and a separate interactive Unity/avatar client.**
-
-This communicates the engineering direction without revealing the implementation recipe.
+A useful longer description should focus on user outcomes: focused context, lower unnecessary token use, separate chat and execution, failure learning, testing, rollback, restart recovery and controlled evolution.

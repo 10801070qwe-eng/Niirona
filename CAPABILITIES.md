@@ -1,142 +1,99 @@
 # NIIRONA Capabilities
 
-This document describes NIIRONA from a public capability perspective.
+This page focuses on **what NIIRONA can do for a user**, rather than listing its private internal modules.
 
-The labels distinguish implemented/demonstrated work, advanced integration work, and planned capabilities.
+## Available / demonstrated foundations
 
----
+### Local-first AI
+NIIRONA is designed to run on user-controlled hardware and has been developed with local LLMs as real runtime targets.
 
-## Implemented / demonstrated
+### Local and cloud reasoning
+The system is not tied to one provider. Local and cloud models can both participate in the NIIRONA environment.
 
-### Deterministic orchestration
-A dedicated non-LLM control layer coordinates system actions.
+### Separate conversation and task execution
+Conversation does not automatically become privileged execution. Explicit tasks follow a separate controlled path, so a long chat does not need to be blindly replayed as the working context for every task.
 
-### Separate chat and task paths
-Conversation and explicit task execution use separate control paths.
+### Project-aware context
+NIIRONA can build a bounded working context around a task instead of treating the entire project as one prompt.
 
-### Explicit task activation
-Ordinary conversation does not automatically become autonomous execution.
+### Isolated execution and testing
+Experimental work can run through an isolated path and validation can be part of the execution lifecycle.
 
-### Controlled integration spine
-Subsystem integration is moving through controlled contracts rather than ad-hoc direct calls.
+### Failure evidence
+Failed attempts can leave reusable evidence. The goal is to reduce repeated bad approaches and make future attempts better informed.
+
+### Checkpoints and rollback
+Known-good state can be preserved around risky changes so failed work can be reversed.
 
 ### Restart and long-session recovery
-Long-running and restart scenarios have been exercised and validated.
+Long-running sessions and restart scenarios have been exercised and validated.
 
-### Execution evidence
-Task attempts can preserve evidence for retry and review logic.
+### Explicit task activation
+Talking about a change is not the same as authorizing the system to make the change.
 
-### Sandbox execution
-Potentially unsafe or experimental work can execute through an isolated path.
+### Interactive client work
+A separate Unity client with an avatar is substantially implemented and continues to be refined.
 
-### Test-aware execution
-Validation is part of the execution lifecycle.
+## Advanced / integration capabilities
 
-### Checkpoint / rollback direction
-Known-good state can be preserved around risky changes and restored when necessary.
+### Adaptive context delivery
+NIIRONA's context direction is not only “find relevant files.”
 
-### Source / identity separation
-User input, system signals, tool output, speech input, and synthesized output can be distinguished at the system level.
+The system is intended to evaluate its own context choices over time: what it selected, what later proved necessary, what was missing and what was unnecessary. That feedback can improve how future tasks are prepared for an LLM.
 
-### Multi-provider LLM support
-NIIRONA has been developed around both local and cloud model providers.
+This can make a local model more effective by reducing noise and can reduce unnecessary cloud-token usage.
 
-### Unity avatar client
-A separate Unity application substantially implements the avatar-side experience, including bone discovery/mapping, rig handling, body/hand movement work, finger-control refinement, and graphical interaction.
+### Model independence
+Project knowledge, task state and execution history are designed to live outside any single LLM session. This makes the reasoning model replaceable without replacing the whole AI environment.
 
----
+### Controlled model hot switching
+Runtime work is being integrated to support switching between registered local and cloud models during operation while preserving the surrounding NIIRONA state.
 
-## Advanced architecture / integration
+### Resilient execution
+NIIRONA is being built to treat interruptions and failures as recoverable events rather than reasons to abandon the whole session.
 
-### Orchestrator V2
-The second-generation deterministic orchestrator has been implemented and is in advanced integration and validation.
+## Development direction
 
-### Advanced Context Manager
-A dedicated subsystem maintains organized project context and supplies bounded, relevant context to reasoning models.
+### Controlled self-extension
+The target workflow for a requested new capability is:
 
-### Project Knowledge Graph
-Structured project knowledge is kept separately from temporary prompt context.
+1. understand the requested behavior;
+2. retrieve only the relevant context;
+3. build the change in isolation;
+4. run targeted tests;
+5. inspect evidence;
+6. repair if necessary;
+7. integrate only after validation;
+8. observe the result;
+9. keep it or roll back;
+10. use failure evidence to inform another attempt.
 
-### Confidence and uncertainty
-Specialized components can express uncertainty without directly owning control flow.
-
-### Hypothesis-driven investigation
-The architecture supports evidence-gathering before committing to a first explanation.
-
-### Failure learning
-Failed attempts can become reusable evidence rather than disappearing as transient logs.
-
-### CAN-only direction
-The system is moving toward a single controlled subsystem-integration path with obsolete direct fallbacks removed.
-
----
-
-## Next major capabilities
-
-### LLM Runtime & Routing Manager
-A dedicated model infrastructure subsystem will manage:
-
-- model profiles;
-- local and cloud providers;
-- GPU mapping;
-- process lifecycle;
-- active-model state;
-- health monitoring;
-- controlled hot switching;
-- explicit multi-model modes;
-- future automatic model selection based on available hardware.
-
-### Intent Gate
-A universal intent classifier will sit between conversational input and deterministic control.
-
-It will distinguish discussion from action and classify supported execution intents without relying on fragile magic phrases.
+This is an engineering direction under active development, not a claim of unrestricted autonomous self-modification today.
 
 ### Cloud-to-local teaching
-A separate subsystem will coordinate controlled teacher/student workflows between stronger cloud models and local models.
+A future controlled workflow is intended to let a stronger cloud model help a local model learn narrow, testable behaviors.
 
----
+### Hardware-aware model selection
+Future runtime management is intended to help choose suitable models for available GPU/VRAM resources.
 
-## Autonomous engineering direction
+### Broader interfaces
+Voice, desktop, mobile and avatar interfaces are intended to remain replaceable surfaces over the same core system.
 
-NIIRONA is being designed to support increasingly autonomous software-engineering loops:
+## Why these capabilities belong together
 
-1. understand the requested change;
-2. retrieve minimal relevant context;
-3. form a candidate solution;
-4. implement in isolation;
-5. run targeted tests;
-6. review evidence;
-7. integrate;
-8. observe behavior;
-9. keep, repair, or roll back.
+NIIRONA's goal is not simply to make an LLM call more tools.
 
-No single LLM call should own the entire lifecycle.
+The goal is to build a persistent AI environment where:
 
----
+- the reasoning model can change;
+- useful project knowledge survives the model;
+- tasks receive focused context;
+- context selection can improve from experience;
+- conversation stays separate from execution;
+- failures can become evidence;
+- risky changes are tested;
+- bad changes can be rolled back;
+- interrupted work can recover;
+- new capabilities can eventually be added through a controlled engineering process.
 
-## Client and interaction direction
-
-NIIRONA is designed to support:
-
-- text chat;
-- speech-to-text;
-- text-to-speech;
-- Windows graphical client;
-- Unity avatar interaction;
-- future mobile clients;
-- visual runtime controls;
-- voice-issued actions routed through the same intent/control protections as typed input.
-
----
-
-## What NIIRONA is not
-
-NIIRONA is not intended to be:
-
-- a single-agent prompt framework;
-- a thin LLM wrapper;
-- a monolithic planner;
-- a chatbot with unrestricted shell access;
-- a single-provider cloud product.
-
-Its design goal is a modular AI environment whose reasoning model and user interface can both be replaced without replacing the system.
+That is the capability layer NIIRONA is being built toward.

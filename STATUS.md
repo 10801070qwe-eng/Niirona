@@ -1,110 +1,57 @@
-# NIIRONA Development Status
+# NIIRONA — Current Public Status
 
-**Status date:** 7 September 2026
+**Public status: September 2026**
 
-This document is intentionally conservative and separates architecture readiness from full product readiness.
+NIIRONA is an active engineering project. The public documentation distinguishes validated foundations from capabilities that are still being integrated or developed.
 
----
+## Substantially implemented / validated
 
-## Architecture
-
-**State: mature / largely fixed**
-
-The major architectural direction is established:
-
-- deterministic control plane;
-- modular subsystem fabric;
-- isolated Orchestrator V2 internals;
-- separate conversation and autonomous-execution paths;
-- dedicated context ownership;
-- sandboxed execution;
-- restart recovery;
-- replaceable LLM infrastructure;
-- future cloud-to-local teaching;
-- explicit intent classification before privileged actions;
-- replaceable desktop/avatar client.
-
----
-
-## Orchestrator V2
-
-**State: implemented / advanced validation and integration**
-
-Orchestrator V2 is no longer a paper design.
-
-It has been built as an executable subsystem and has progressed through extensive contract, regression, recovery, replay, and architecture-boundary testing.
-
-The remaining work is focused on completing migration/integration boundaries and removing obsolete overlapping control logic rather than redesigning the concept from scratch.
-
----
-
-## Core integration
-
-**State: advanced**
-
-The system has validated important behavior including:
-
-- long-running sessions;
-- restart recovery;
+- local-first AI runtime work;
+- support for local and cloud model providers;
+- separate conversation and explicit task paths;
 - explicit task activation;
-- execution evidence;
+- project-aware context retrieval;
+- controlled execution paths;
+- sandbox-oriented execution;
+- testing and execution evidence;
+- failure evidence / learning direction;
+- checkpoint and rollback workflows;
+- restart recovery;
+- long-session stability testing;
+- source/identity separation;
 - controlled subsystem integration;
-- no silent dependence on obsolete direct runtime paths.
+- a substantially implemented separate Unity/avatar client.
 
-Integration work remains active as the architecture is tightened.
+Restart, long-session and normal user-style task scenarios have been specifically exercised during integration.
 
----
+## Advanced integration
 
-## Unity / avatar client
+### Context intelligence
+Organized project context and bounded retrieval are part of the architecture. Further work is focused on making context selection increasingly adaptive: using task outcomes to learn what information was actually useful, missing or unnecessary.
 
-**State: substantially implemented / active refinement**
+### Model runtime management
+NIIRONA already supports local/cloud provider work. Dedicated runtime management is the next major infrastructure step, including lifecycle control, GPU mapping, health state and controlled hot switching.
 
-A separate Unity application exists for the visual avatar client.
+### Final architecture migration
+Older duplicate control paths are being removed so the modern controlled architecture remains the single normal runtime path.
 
-Current implemented or actively refined areas include:
+## In development / planned
 
-- avatar loading/control;
-- bone discovery and mapping;
-- rig handling;
-- poses and body movement;
-- hand and finger control;
-- graphical menu/interface.
+- complete controlled hot switching between models;
+- broader multi-model runtime modes;
+- hardware-aware model selection;
+- stronger adaptive context optimization;
+- controlled self-extension loops;
+- cloud-to-local teaching;
+- deeper voice integration;
+- mobile client work;
+- final Unity/client-to-core integration;
+- additional security hardening.
 
-The current refinement work includes neutral hand/finger behavior and final connection of the client to the NIIRONA core.
+## Important wording
 
-The Unity client is not part of the deterministic control core.
+NIIRONA is **not** being presented as a finished commercial product.
 
----
+It is also not a concept-only repository. Significant core, recovery, execution and client work exists and has been tested.
 
-## Current high-level status
-
-| Area | State |
-|---|---|
-| Modular core architecture | Mature / largely fixed |
-| Orchestrator V2 | Implemented / advanced validation |
-| Core subsystem fabric | Advanced |
-| Sandbox execution | Implemented |
-| Restart / long-session recovery | Validated |
-| Explicit task activation | Validated |
-| Controlled integration direction | Validated |
-| Legacy control cleanup | In progress |
-| Final core cutover | In progress |
-| Intent Gate | Architecture fixed; implementation pending |
-| LLM Runtime & Routing Manager | Architecture fixed; major next block |
-| Hardware-aware model selection | Planned inside model-runtime work |
-| Cloud-to-local teaching | Designed; later phase |
-| Security hardening | Planned |
-| Windows/Unity UI + avatar | Substantially implemented; refinement/integration active |
-| Mobile client | Future |
-
----
-
-## Readiness statement
-
-NIIRONA should not yet be described publicly as “100% production complete.”
-
-A strong and accurate description is:
-
-> **NIIRONA has a mature modular architecture, an implemented second-generation deterministic orchestrator under advanced validation, a substantially implemented Unity/avatar client, and is now progressing through final migration, model-runtime, intent-control, and client-integration work.**
-
-That statement reflects the current project without overstating completion.
+Where a capability is still a development target — especially full model hot switching and broad autonomous self-extension — the public documentation labels it accordingly.

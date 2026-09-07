@@ -1,11 +1,27 @@
-# Source Availability Notice
+# NIIRONA — Source Availability and Rights Notice
 
-This repository documents the NIIRONA project at a public architectural level.
+Copyright © 2026. All rights reserved.
 
-The production implementation is not included.
+This repository is a **public documentation and project-overview repository**.
 
-Unless a specific file states otherwise, publication of these documents does not grant permission to reproduce unpublished NIIRONA implementation details, private source code, private configuration, proprietary internal protocols, brand assets, or other non-public project materials.
+Unless a specific file explicitly states otherwise, publication of NIIRONA documentation, screenshots, diagrams, descriptions or other materials in this repository does **not** grant permission to copy, reproduce, redistribute, sublicense, sell, publish derivative implementations from protected materials, or use unpublished NIIRONA source code.
 
-No open-source software license is being granted for the unpublished production code by this documentation repository.
+## Production source code
 
-If a formal documentation/content license or software release is added later, it should be stated explicitly in the relevant files.
+The production NIIRONA source code and private implementation details are not released through this repository.
+
+The repository may describe public capabilities, development status, high-level engineering principles and non-sensitive interface concepts without disclosing the implementation required to reproduce the production system.
+
+## Third-party components
+
+NIIRONA may interact with or depend on third-party software, models, libraries, APIs or tools. Those components remain subject to their respective licenses and terms.
+
+This notice does not claim ownership of third-party works.
+
+## Contributions and permissions
+
+No contribution license, source license or commercial-use permission should be inferred from the existence of this public repository.
+
+Any future source release, contribution policy or licensing terms will be stated explicitly in the relevant files.
+
+For permission requests, use the repository owner's published contact channel.
