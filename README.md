@@ -103,3 +103,22 @@ See:
 - [Russian overview](README_RU.md)
 - [Public disclosure policy](PUBLIC_DISCLOSURE.md)
 - [Source availability notice](LICENSE-NOTICE.md)
+---
+
+## Unity Avatar Client
+
+NIIRONA includes an interactive Unity-based avatar client that provides a visual interface for interaction with the system.
+
+### Interactive interface
+
+![NIIRONA Unity Avatar Interface](Снимок%20экрана%20(726).png)
+
+### Avatar rig and skeleton tools
+
+NIIRONA includes custom Unity tooling for avatar analysis, humanoid skeleton detection, finger-bone mapping, rig construction, and avatar control.
+
+![NIIRONA Avatar Rig Tools](Снимок%20экрана%20(729).png)
+
+### Development view
+
+![NIIRONA Avatar Development](Снимок%20экрана%20(728).png)
