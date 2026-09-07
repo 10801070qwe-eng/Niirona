@@ -72,7 +72,15 @@ The engineering direction is:
 Restart recovery and long-session behavior are first-class concerns.
 
 NIIRONA has already been validated across restart and long-session scenarios. Risky work can be associated with known-good state so a failed change can be reversed instead of leaving the project in an unknown condition.
+### Deterministic orchestration instead of LLM-controlled execution
 
+NIIRONA keeps system control outside the reasoning model. The LLM can analyze, propose and reason, but deterministic orchestration owns execution flow.
+
+Orchestrator V2 is being developed as a deliberately minimal coordination layer. Complex behavior is divided into independent modules, while the orchestrator coordinates their signals rather than becoming another intelligent monolith.
+
+The architecture is designed around explicit state, acknowledgements, restart recovery and failure isolation so that individual components can be restarted or replaced without turning the LLM into the control authority.
+
+→ [Read more about NIIRONA Orchestrator V2](ORCHESTRATOR_V2.md)
 ### Grow new capabilities safely
 The longer-term autonomous engineering direction is that a user should be able to request a capability the system does not yet have.
 
